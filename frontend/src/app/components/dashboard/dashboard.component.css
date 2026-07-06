@@ -1,0 +1,64 @@
+:host {
+  display: block;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  font-family: system-ui, sans-serif;
+}
+
+header h1 {
+  margin-bottom: 1rem;
+}
+
+.banner {
+  padding: 0.75rem 1rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+.banner.success {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+.banner.error {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+.availability {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.slot-card {
+  flex: 1;
+  padding: 1rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.slot-card .size {
+  font-weight: 700;
+}
+
+.slot-card .count {
+  color: #4b5563;
+}
+
+.main-grid {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+@media (max-width: 700px) {
+  .main-grid {
+    grid-template-columns: 1fr;
+  }
+}

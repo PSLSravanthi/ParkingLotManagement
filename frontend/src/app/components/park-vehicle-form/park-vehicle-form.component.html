@@ -1,0 +1,22 @@
+<form class="park-form" [formGroup]="form" (ngSubmit)="submit()">
+  <h2>Park a Vehicle</h2>
+
+  <div class="field">
+    <label for="vehicleNumber">Vehicle Number</label>
+    <input id="vehicleNumber" type="text" formControlName="vehicleNumber" placeholder="e.g. AB-1234" />
+    @if (form.controls.vehicleNumber.invalid && form.controls.vehicleNumber.touched) {
+      <span class="error">Vehicle number is required.</span>
+    }
+  </div>
+
+  <div class="field">
+    <label for="vehicleType">Vehicle Type</label>
+    <select id="vehicleType" formControlName="vehicleType">
+      @for (type of vehicleTypes; track type) {
+        <option [value]="type">{{ type }}</option>
+      }
+    </select>
+  </div>
+
+  <button type="submit">Park Vehicle</button>
+</form>

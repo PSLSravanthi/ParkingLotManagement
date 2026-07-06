@@ -1,0 +1,30 @@
+<h2>Active Tickets</h2>
+
+@if (tickets.length === 0) {
+  <p class="empty">No vehicles are currently parked.</p>
+} @else {
+  <table>
+    <thead>
+      <tr>
+        <th>Ticket</th>
+        <th>Vehicle</th>
+        <th>Type</th>
+        <th>Slot</th>
+        <th>Entry Time</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (ticket of tickets; track ticket.id) {
+        <tr>
+          <td>#{{ ticket.id }}</td>
+          <td>{{ ticket.vehicleNumber }}</td>
+          <td>{{ ticket.vehicleType }}</td>
+          <td>{{ ticket.slotId }}</td>
+          <td>{{ ticket.entryTime | date: 'short' }}</td>
+          <td><button (click)="exit.emit(ticket.id)">Exit</button></td>
+        </tr>
+      }
+    </tbody>
+  </table>
+}

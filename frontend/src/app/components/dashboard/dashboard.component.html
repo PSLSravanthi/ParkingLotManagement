@@ -1,0 +1,24 @@
+<header>
+  <h1>Parking Lot Dashboard</h1>
+</header>
+
+@if (statusMessage) {
+  <div class="banner success">{{ statusMessage }}</div>
+}
+@if (errorMessage) {
+  <div class="banner error">{{ errorMessage }}</div>
+}
+
+<section class="availability">
+  @for (slot of availability; track slot.size) {
+    <div class="slot-card">
+      <span class="size">{{ slot.size }}</span>
+      <span class="count">{{ slot.available }} / {{ slot.total }} available</span>
+    </div>
+  }
+</section>
+
+<section class="main-grid">
+  <app-park-vehicle-form (park)="onPark($event)"></app-park-vehicle-form>
+  <app-active-tickets [tickets]="activeTickets" (exit)="onExit($event)"></app-active-tickets>
+</section>
